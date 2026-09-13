@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widht=device--width, initial-scale=1.0">
+    <title>Mesaj trimis - Tete Band</title>
+    <link rel="icon" type="image/png" th:href="@{/favicon.png}">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0e0e0e;
+            color: #f0f0f0;
+        }
+
+        .confirmare-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .confirmare-container h1 {
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #c9a876;
+            margin-bottom: 20px;
+        }
+
+        .confirmare-container p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #b0b0b0;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        .buton-acasa {
+            display: inline-block;
+            background-color: #c9a876;
+            color: #0e0e0e;
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 14px 30px;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .buton-acasa:hover {
+            background-color: #f5e6c8;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmare-container">
+        <h1>Mulțumim!</h1>
+        <p>
+            Mulțumim că ați ales Tete Band.<br>
+            Veți fi contactat în cel mai scurt timp de cineva din formație.
+        </p>
+        <a th:href="@{/}" class="buton-acasa">Înapoi la pagina principală</a>
+    </div>
+</body>
+</html>
