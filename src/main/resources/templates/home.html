@@ -2,7 +2,7 @@
 <html lang="ro" xmlns:th="http://www.thymeleaf.org"> <!--Declara ca aceasta pagina poate folosi comenzi speciale Thymeleaf de tip th:-->
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device--width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TETE BAND | TeteBand.ro</title>
     <link rel="icon" type="image/png" th:href="@{/favicon.png}">
     <style>
@@ -316,9 +316,9 @@
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr) !important;
             gap: 30px;
-            max-width: 1000px;
+            max-width: 1400px;
             width: 100%;
         }
 
@@ -326,6 +326,7 @@
             position: relative;
             cursor: pointer;
             overflow: hidden;
+            width: 100%;
             border-radius: 12px;
             border: 1px solid #2a2a2a;
         }
@@ -382,6 +383,31 @@
             font-size: 14px;
             color: #b0b0b0;
             text-align: center;
+        }
+
+        .video-card.video-ascuns {
+            display: none;
+        }
+
+        #btn-toggle-videos {
+            display: block;
+            margin: 30px auto 0 auto;
+            background-color: transparent;
+            color: #c9a876;
+            border: 2px solid #c9a876;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #btn-toggle-videos:hover {
+            background-color: #c9a876;
+            color: #0e0e0e;
         }
 
         .video-popup {
@@ -509,6 +535,18 @@
             }
         }
 
+        @media (max-width: 900px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .video-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -575,14 +613,29 @@
                 </div>
                 <!-- <p>VIDEO2 - Majorat</p> -->
             </div>
+            <div class="video-card" onclick="deschidePopup('FcOz8r5p7Ac')">
+                <div class="thumb-wrapper">
+                    <img src="https://img.youtube.com/vi/FcOz8r5p7Ac/hqdefault.jpg" alt="Video3">
+                    <div class="play-icon">▶</div>
+                </div>
+                <!-- <p>VIDEO3 - Nunta</p>   -->
+            </div>
+            <div class="video-card video-ascuns" onclick="deschidePopup('n-eI2hGvLXI')">
+                <div class="thumb-wrapper">
+                    <img src="https://img.youtube.com/vi/n-eI2hGvLXI/hqdefault.jpg" alt="Video3">
+                    <div class="play-icon">▶</div>
+                </div>
+                <!-- <p>VIDEO3 - Nunta</p>   -->
+            </div>
         </div>
+        <button id="btn-toggle-videos" onclick="toggleVideoclipuri()">Arata mai multe</button>
     </section>
     <div class="video-popup" id="video-popup">
         <div class="popup-continut">
             <span class="popup-inchide" onclick="inchidePopup()">&times;</span>
             <div class="video-wrapper">
                 <iframe id="video-frame" src="" title="Video Tete Band" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-white; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
             <a id="link-youtube" href="#" target="_blank" class="button-youtube">Vezi pe Youtube</a>
@@ -714,6 +767,33 @@
         function inchidePopup() {
             document.getElementById('video-popup').classList.remove('deschis');
             document.getElementById('video-frame').src = '';
+    }
+
+        window.addEventListener('click', function(e) {
+            const popup = document.getElementById('video-popup');
+            if (e.target === popup) {
+                inchidePopup();
+            }
+        });
+
+        function toggleVideoclipuri() {
+            const carduriAscunse = document.querySelectorAll('.video-card.video-ascuns');
+            const btn = document.getElementById('btn-toggle-videos');
+
+            if (carduriAscunse.length > 0) {
+                // Afișează toate videoclipurile
+                carduriAscunse.forEach(card => card.classList.remove('video-ascuns'));
+                btn.innerText = 'Arată mai puține';
+            } else {
+                // Ascunde videoclipurile începând de la al 4-lea
+                const toateCardurile = document.querySelectorAll('.video-grid .video-card');
+                toateCardurile.forEach((card, index) => {
+                    if (index >= 3) {
+                        card.classList.add('video-ascuns');
+                    }
+                });
+                btn.innerText = 'Arată mai multe';
+            }
     }
     </script>
 
