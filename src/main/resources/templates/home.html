@@ -5,568 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TETE BAND | TeteBand.ro</title>
     <link rel="icon" type="image/png" th:href="@{/favicon.png}">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0e0e0e;
-            color: #f0f0f0;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(14, 14, 14, 0.95);
-            z-index: 1000;
-            border-bottom: 1px solid #2a2a2a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            padding: 0 40px;
-            box-sizing: border-box;
-        }
-
-        .logo {
-            height: 45px;
-            display: block;
-        }
-
-        #acasa {
-            background-image: linear-gradient(rgba(14, 14, 14, 0.35), rgba(14, 14, 14, 0.5)), url('/images/P1018761.jpg');
-            background-size: cover;
-            background-position: center 63%;
-            background-repeat: no-repeat;
-            justify-content: flex-start;
-            padding-top: 90px;
-        }
-
-        #acasa h1 {
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-        }
-
-        #acasa .logo {
-            height: 100px;
-            display: block;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 20px 0px;
-            display:inline-flex;
-            gap: 35px;
-        }
-
-        nav a {
-            display: flex;
-            align-items: center;
-        }
-
-        nav ul li a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #c9a876;
-        }
-
-        section {
-            min-height: 100vh;
-            padding: 100px 40px 40px 40px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            justify-content: center;
-            border-bottom: 1px solid #1f1f1f;
-        }
-
-        section h1{
-            font-size: 48px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        section h2{
-            font-size: 75px;
-            font-weight: 550;
-            letter-spacing: 4px;
-            color: #c9a876;
-            margin-bottom: 30px;
-            background: linear-gradient(90deg, #8a6f45 0%, #c9a876 25%, #fff6e0 50%, #c9a876 75%, #8a6f45 100%);
-            background-size: 250% 100%;
-            background-position: 50% 0%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 15px rgba(201, 168, 118, 0.25);
-            cursor: default;
-            transition: background-position 0.2s ease-out;
-        }
-
-        /* section h2:hover {
-             filter: brightness(1.1); 
-            text-shadow: 0 0 20px rgba(245, 230, 200, 0.6), 0 0 50px rgba(201, 168, 118, 0.35);
-        } */
-
-        #contact h2 {
-            margin-bottom: -8px;
-        }
-
-        #contact p {
-            font-size: 18px;
-        }
-
-        section p {
-            font-size: 24px;
-            line-height: 1.6;
-            color: #b0b0b0;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-form {
-            width: 100%;
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 15px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            background-color: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 5px;
-            color: #f0f0f0;
-            padding: 12px 15px;
-            font-size: 15px;
-            font-family: inherit;
-            flex: 1;
-            box-sizing: border-box;
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: #777;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: #c9a876;
-        }
-
-        .full-width {
-            width: 100%;
-        }
-
-        .contact-form button {
-            background-color: #c9a876;
-            color: #0e0e0e;
-            border: none;
-            border-radius: 5px;
-            padding: 14px;
-            font-size: 15px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #f5e6c8;
-        }
-
-        .social-sidebar {
-            position: fixed;
-            top: 50%;
-            right: 25px;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 999;
-        }
-
-        .social-sidebar a {
-            width: 52px;
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #3a3a3a;
-            border-radius: 50%;
-            transition: border-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .social-sidebar svg {
-            width: 30px;
-            height: 30px;
-            fill: #c9a876;
-            transition: fill 0.3s ease;
-        }
-
-        .social-sidebar a:hover {
-            border-color: #c9a876;
-            transform: scale(1.1);
-        }
-
-        .social-sidebar a:hover svg {
-            fill: #f5e6c8;
-        }
-
-        .site-footer {
-            background-color: #0a0a0a;
-            padding: 160px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .site-footer p {
-            font-size: 36px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #b0b0b0;
-            margin-bottom: 30px;
-        }
-
-        .site-footer .logo {
-            height: 200px;
-            display: block;
-        }
-
-        .social-footer {
-            display: flex;
-            gap: 30px;
-        }
-
-        .social-footer a {
-            width: 55px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #3a3a3a;
-            border-radius: 50%;
-            transition: border-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .social-footer svg {
-            width: 26px;
-            height: 26px;
-            fill: #c9a876;
-            transition: fill 0.3s ease;
-        }
-
-        .social-footer a:hover {
-            border-color: #c9a876;
-            transform: scale(1.1);
-        }
-
-        .social-footer a:hover svg {
-            fill: #f5e6c8;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            width: 26px;
-            height: 2px;
-            background-color: #f0f0f0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .hamburger.activ span:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        .hamburger.activ span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.activ span:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        /*
-        CSS EVENIMENTE
-        */
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 30px;
-            max-width: 1400px;
-            width: 100%;
-        }
-
-        .video-card {
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid #2a2a2a;
-        }
-
-        .video-card .thumb-wrapper {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16/9;
-            overflow: hidden;
-        }
-
-        .video-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-            transition: transform 0.4s ease, filter 0.4s ease;
-        }
-
-        .video-card:hover img {
-            transform: scale(1.08);
-            filter: brightness(0.6);
-        }
-
-        .play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background-color: rgba(14, 14, 14, 0.55);
-            border: 2px solid #c9a876;
-            color: #c9a876;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            padding-left: 4px;
-            pointer-events: none;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .video-card:hover .play-icon {
-            transform: translate(-50%, -50%) scale(1.15);
-            background-color: rgba(201, 168, 118, 0.25);
-        }
-
-        .video-card p {
-            padding: 12px;
-            margin: 0;
-            font-size: 14px;
-            color: #b0b0b0;
-            text-align: center;
-        }
-
-        .video-card.video-ascuns {
-            display: none;
-        }
-
-        #btn-toggle-videos {
-            display: block;
-            margin: 30px auto 0 auto;
-            background-color: transparent;
-            color: #c9a876;
-            border: 2px solid #c9a876;
-            padding: 12px 30px;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        #btn-toggle-videos:hover {
-            background-color: #c9a876;
-            color: #0e0e0e;
-        }
-
-        .video-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .video-popup.deschis {
-            display: flex;
-        }
-
-        .popup-continut {
-            width: 90%;
-            max-width: 1300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .popup-inchide {
-            align-self: flex-end;
-            color: #f0f0f0;
-            font-size: 32px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .buton-youtube {
-            margin-top: 20px;
-            background-color: #c9a876;
-            color: #0e0e0e;
-            text-decoration: none;
-            padding: 12px 28px;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease;
-        }
-
-        .buton-youtube:hover {
-            background-color: #f5e6c8;
-        }
-
-        /*
-        CSS VARIANTA TELEFOn
-        */
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            nav ul {
-                display: flex;
-                flex-direction: column;
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background-color: rgba(14, 14, 14, 0.98);
-                justify-content: center;
-                align-items: center;
-                gap: 40px;
-                transition: right 0.4s ease;
-                margin: 0;
-                padding: 0;
-            }
-
-            nav ul.meniu-deschis {
-                right: 0;
-            }
-
-            .social-sidebar {
-                display: none;
-            }
-
-            nav ul .social-mobil {
-                display: flex;
-                gap: 25px;
-                margin-top: 20px;
-            }
-
-            nav ul .social-mobil svg {
-                width: 26px;
-                height: 26px;
-                fill: #c9a876;
-            }
-
-            section {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-
-            section h1 {
-                font-size: 32px;
-            }
-
-            section h2 {
-                font-size: 28px;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .video-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .video-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
     <nav>
         <a href="/">
-            <img th:src="@{/images/logo.png}" alt="Tete Band" class="logo">
+            <img th:src="@{/images/logo_bun.png}" alt="Tete Band" class="logo">
         </a>
 
         <button class="hamburger" id="hamburger-btn">
@@ -576,15 +21,21 @@
         </button>
         
         <ul id="meniu-principal">
+            <li class="telefon-mobil">
+                <a href="tel:+40738522875">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    0738 522 875
+                </a>
+            </li>
             <li><a href="#despre">Despre</a></li>
             <li><a href="#evenimente">Evenimente</a></li>
-            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#galerie">Galerie Foto</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="social-mobil">
                 <a href="https://facebook.com/liviutete1" target="_blank" aria-label="Facebook">
                     <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
                 </a>
-                <a href="https://instagram.com/dolanconstantinliviu/" target="_blank" aria-label="Instagram">
+                <a href="https://instagram.com/teteliviu/" target="_blank" aria-label="Instagram">
                     <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.07.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.55.55.9 1.1 1.15 1.76.25.64.42 1.36.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.07-.22 1.79-.47 2.43-.26.66-.6 1.21-1.15 1.76-.55.55-1.1.9-1.76 1.15-.64.25-1.36.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.07-.05-1.79-.22-2.43-.47-.66-.26-1.21-.6-1.76-1.15-.55-.55-.9-1.1-1.15-1.76-.25-.64-.42-1.36-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.07.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76.55-.55 1.1-.9 1.76-1.15.64-.25 1.36-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg>
                 </a>
                 <a href="https://tiktok.com/@teteband" target="_blank" aria-label="TikTok">
@@ -598,50 +49,43 @@
                 </a>
             </li>
         </ul>
+        <a href="tel:+40738522875" class="nav-telefon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span>0738 522 875</span>
+        </a>
     </nav>
 
     <section id="acasa">
-        <img th:src="@{/images/logo.png}" alt="Tete Band" class="logo">
+        <img th:src="@{/images/logo_bun.png}" alt="Tete Band" class="logo">
         <h1>Bine ai venit pe site-ul formatiei</h1>
     </section>
-
-    <!-- <section id="muzica">
-        <h2>Muzica</h2>
-    </section> -->
 
     <section id="evenimente">
         <h2>Evenimente</h2>
         <div class="video-grid">
-            <div class="video-card" onclick="deschidePopup('5e4NShP7T34')">
+            <div class="video-card" onclick="deschidePopup('XNLvm_qqgTo')">
                 <div class="thumb-wrapper">
-                    <img src="https://img.youtube.com/vi/5e4NShP7T34/hqdefault.jpg" alt="Video1">
+                    <img src="https://img.youtube.com/vi/XNLvm_qqgTo/hqdefault.jpg" alt="Video1">
                     <div class="play-icon">▶</div>
                 </div>
                 <!-- <p>VIDEO1 - Nunta</p>   -->
             </div>
-            <div class="video-card" onclick="deschidePopup('_fdJzOf1ILE')">
+            <div class="video-card" onclick="deschidePopup('mSWsVYZyEUc')">
                 <div class="thumb-wrapper">
-                    <img src="https://img.youtube.com/vi/_fdJzOf1ILE/hqdefault.jpg" alt="Video2">
+                    <img src="https://img.youtube.com/vi/mSWsVYZyEUc/hqdefault.jpg" alt="Video2">
                     <div class="play-icon">▶</div>
                 </div>
                 <!-- <p>VIDEO2 - Majorat</p> -->
             </div>
-            <div class="video-card" onclick="deschidePopup('FcOz8r5p7Ac')">
+            <div class="video-card" onclick="deschidePopup('TRZSYTSPI1o')">
                 <div class="thumb-wrapper">
-                    <img src="https://img.youtube.com/vi/FcOz8r5p7Ac/hqdefault.jpg" alt="Video3">
-                    <div class="play-icon">▶</div>
-                </div>
-                <!-- <p>VIDEO3 - Nunta</p>   -->
-            </div>
-            <div class="video-card video-ascuns" onclick="deschidePopup('n-eI2hGvLXI')">
-                <div class="thumb-wrapper">
-                    <img src="https://img.youtube.com/vi/n-eI2hGvLXI/hqdefault.jpg" alt="Video3">
+                    <img src="https://img.youtube.com/vi/TRZSYTSPI1o/hqdefault.jpg" alt="Video3">
                     <div class="play-icon">▶</div>
                 </div>
                 <!-- <p>VIDEO3 - Nunta</p>   -->
             </div>
         </div>
-        <button id="btn-toggle-videos" onclick="toggleVideoclipuri()">Arata mai multe</button>
+        <a th:href="@{/evenimente}" id="btn-toggle-videos">Arată mai multe</a>
     </section>
     <div class="video-popup" id="video-popup">
         <div class="popup-continut">
@@ -653,7 +97,7 @@
             </div>
             <a id="link-youtube" href="#" target="_blank" class="button-youtube">Vezi pe Youtube</a>
         </div>
-        </div>
+    </div>
 
     
 
@@ -672,11 +116,45 @@
         și petrecere de la primul până la ultimul cântec.
         </p>
 
+        <a th:href="@{/despre}" id="btn-toggle-despre">Află mai multe</a>
+
     </section>
 
     <section id="galerie">
         <h2>Galerie foto</h2>
+        <div class="foto-grid">
+            <div class="foto-card" onclick="deschidePopupFoto('/images/galerie/poza5.jpg')">
+                <img src="/images/galerie/poza5.jpg" alt="Tete Band eveniment">
+            </div>
+            <div class="foto-card" onclick="deschidePopupFoto('/images/galerie/poza3.jpg')">
+                <img src="/images/galerie/poza3.jpg" alt="Tete Band eveniment">
+            </div>
+            <div class="foto-card" onclick="deschidePopupFoto('/images/galerie/poza2.jpeg')">
+                <img src="/images/galerie/poza2.jpeg" alt="Tete Band eveniment">
+            </div>
+            <div class="foto-card foto-ascuns" onclick="deschidePopupFoto('/images/galerie/poza1.jpeg')">
+                <img src="/images/galerie/poza1.jpeg" alt="Tete Band eveniment">
+            </div>
+            <div class="foto-card foto-ascuns" onclick="deschidePopupFoto('/images/galerie/poza4.jpg')">
+                <img src="/images/galerie/poza4.jpg" alt="Tete Band eveniment">
+            </div>
+            <div class="foto-card foto-ascuns" onclick="deschidePopupFoto('/images/galerie/poza6.jpg')">
+                <img src="/images/galerie/poza6.jpg" alt="Tete Band eveniment">
+            </div>
+            <div class="foto-card foto-ascuns" onclick="deschidePopupFoto('/images/galerie/poza7.jpg')">
+                <img src="/images/galerie/poza7.jpg" alt="Tete Band eveniment">
+            </div>
+            <div class="foto-card foto-ascuns" onclick="deschidePopupFoto('/images/galerie/poza8.jpg')">
+                <img src="/images/galerie/poza8.jpg" alt="Tete Band eveniment">
+            </div>
+        </div>
+        <a href="javascript:void(0)" id="btn-toggle-poze" onclick="toggleGalerie()">Arată mai multe</a>
     </section>
+
+    <div class="foto-popup" id="foto-popup">
+        <span class="popup-inchide" onclick="inchidePopupFoto()">&times;</span>
+        <img id="foto-popup-img" src="" alt="Tete Band">
+    </div>
 
     <section id="contact">
         <h2>Contact</h2>
@@ -698,14 +176,14 @@
 
     <footer class="site-footer">
         <a href="/">
-                <img th:src="@{/images/logo.png}" alt="Tete Band" class="logo">
+                <img th:src="@{/images/logo_bun.png}" alt="Tete Band" class="logo">
             </a>
         <p>Follow us on Social Media</p>
         <div class="social-footer">
             <a href="https://facebook.com/liviutete1" target="_blank" aria-label="Facebook">
                 <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
             </a>
-            <a href="https://instagram.com/dolanconstantinliviu/" target="_blank" aria-label="Instagram">
+            <a href="https://instagram.com/teteliviu/" target="_blank" aria-label="Instagram">
                 <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.07.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.55.55.9 1.1 1.15 1.76.25.64.42 1.36.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.07-.22 1.79-.47 2.43-.26.66-.6 1.21-1.15 1.76-.55.55-1.1.9-1.76 1.15-.64.25-1.36.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.07-.05-1.79-.22-2.43-.47-.66-.26-1.21-.6-1.76-1.15-.55-.55-.9-1.1-1.15-1.76-.25-.64-.42-1.36-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.07.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76.55-.55 1.1-.9 1.76-1.15.64-.25 1.36-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg>
             </a>
             <a href="https://tiktok.com/@teteband" target="_blank" aria-label="TikTok">
@@ -724,7 +202,7 @@
     <a href="https://facebook.com/liviutete1" target="_blank" aria-label="Facebook">
         <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
     </a>
-    <a href="https://instagram.com/dolanconstantinliviu/" target="_blank" aria-label="Instagram">
+    <a href="https://instagram.com/teteliviu/" target="_blank" aria-label="Instagram">
         <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.07.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.55.55.9 1.1 1.15 1.76.25.64.42 1.36.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.07-.22 1.79-.47 2.43-.26.66-.6 1.21-1.15 1.76-.55.55-1.1.9-1.76 1.15-.64.25-1.36.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.07-.05-1.79-.22-2.43-.47-.66-.26-1.21-.6-1.76-1.15-.55-.55-.9-1.1-1.15-1.76-.25-.64-.42-1.36-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.07.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76.55-.55 1.1-.9 1.76-1.15.64-.25 1.36-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg>
     </a>
     <a href="https://tiktok.com/@teteband" target="_blank" aria-label="TikTok">
@@ -771,6 +249,24 @@
     </script>
 
     <script>
+        function pozitioneazaTelefon() {
+            const meniu = document.getElementById('meniu-principal');
+            const telefon = document.querySelector('.nav-telefon');
+            if (!meniu || !telefon || window.innerWidth <= 768) return;
+
+            const dreptunghiMeniu = meniu.getBoundingClientRect();
+            const spatiuRamas = window.innerWidth - dreptunghiMeniu.right;
+            const distantaDeMarginea = spatiuRamas / 2 - telefon.offsetWidth / 2;
+
+            telefon.style.right = distantaDeMarginea + 'px';
+        }
+
+        window.addEventListener('resize', pozitioneazaTelefon);
+        window.addEventListener('load', pozitioneazaTelefon);
+        pozitioneazaTelefon();
+    </script>
+
+    <script>
         function deschidePopup(videoId) {
             document.getElementById('video-frame').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
             document.getElementById('link-youtube').href = 'https://www.youtube.com/watch?v=' + videoId;
@@ -788,29 +284,59 @@
                 inchidePopup();
             }
         });
+    </script>
 
-        function toggleVideoclipuri() {
-            const carduriAscunse = document.querySelectorAll('.video-card.video-ascuns');
-            const btn = document.getElementById('btn-toggle-videos');
+    <script>
+        const navbar = document.querySelector('nav');
+        const sectiuneHero = document.getElementById('acasa');
+        const inaltimeHero = sectiuneHero ? sectiuneHero.offsetHeight : 250;
+        const zonaTranzitie = 300;
 
-            if (carduriAscunse.length > 0) {
-                // Afișează toate videoclipurile
-                carduriAscunse.forEach(card => card.classList.remove('video-ascuns'));
-                btn.innerText = 'Arată mai puține';
-            } else {
-                // Ascunde videoclipurile începând de la al 4-lea
-                const toateCardurile = document.querySelectorAll('.video-grid .video-card');
-                toateCardurile.forEach((card, index) => {
-                    if (index >= 3) {
-                        card.classList.add('video-ascuns');
-                    }
-                });
-                btn.innerText = 'Arată mai multe';
+        function verificaScroll() {
+            const scroll = window.scrollY;
+            const pragStart = inaltimeHero - zonaTranzitie - 100;
+
+            let progres = (scroll - pragStart) / zonaTranzitie;
+            progres = Math.min(Math.max(progres, 0), 1);
+
+            navbar.style.setProperty('--nav-opacity', (progres * 0.95).toFixed(2));
+        }
+
+        window.addEventListener('scroll', verificaScroll);
+        verificaScroll();
+    </script>
+
+    <script>
+        function deschidePopupFoto(url) {
+            document.getElementById('foto-popup-img').src = url;
+            document.getElementById('foto-popup').classList.add('deschis');
+        }
+
+        function inchidePopupFoto() {
+            document.getElementById('foto-popup').classList.remove('deschis');
+        }
+
+        window.addEventListener('click', function(e) {
+            const popup = document.getElementById('foto-popup');
+            if (e.target === popup) {
+                inchidePopupFoto();
             }
-    }
+        });
+    </script>
+
+    <script>
+        function toggleGalerie() {
+            const carduriAscunse = document.querySelectorAll('.foto-card.foto-ascuns');
+            const btn = document.getElementById('btn-toggle-poze');
+            const sunAscunse = getComputedStyle(carduriAscunse[0]).display === 'none';
+
+            carduriAscunse.forEach(card => {
+                card.style.display = sunAscunse ? 'block' : 'none';
+            });
+
+            btn.innerText = sunAscunse ? 'Arată mai puține' : 'Arată mai multe';
+        }
     </script>
 
 </body>
 </html>
-
-<!--eslc frcf bydh rcru-->

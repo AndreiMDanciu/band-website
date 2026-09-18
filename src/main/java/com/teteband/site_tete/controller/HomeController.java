@@ -9,4 +9,12 @@ public class HomeController {
     public String home() {
         return "home"; // cauta fisierul home.html in templates
     }
+    @GetMapping("/evenimente")
+    public String evenimente() {
+        return "evenimente";
+    }
+    @GetMapping("/despre")
+    public String despre() {
+        return "despre";
+    }
 }

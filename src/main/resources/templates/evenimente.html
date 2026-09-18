@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ro" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evenimente - Tete Band</title>
+    <link rel="icon" type="image/png" th:href="@{/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <nav>
+        <a href="/">
+            <img th:src="@{/images/logo.png}" alt="Tete Band" class="logo">
+        </a>
+
+        <button class="hamburger" id="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <ul id="meniu-principal">
+            <li><a href="/#despre">Despre</a></li>
+            <li><a href="/#evenimente">Evenimente</a></li>
+            <li><a href="/#galerie">Galerie</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li class="social-mobil">
+                <a href="https://facebook.com/liviutete1" target="_blank" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+                </a>
+                <a href="https://instagram.com/teteliviu/" target="_blank" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.07.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.55.55.9 1.1 1.15 1.76.25.64.42 1.36.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.07-.22 1.79-.47 2.43-.26.66-.6 1.21-1.15 1.76-.55.55-1.1.9-1.76 1.15-.64.25-1.36.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.07-.05-1.79-.22-2.43-.47-.66-.26-1.21-.6-1.76-1.15-.55-.55-.9-1.1-1.15-1.76-.25-.64-.42-1.36-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.07.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76.55-.55 1.1-.9 1.76-1.15.64-.25 1.36-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg>
+                </a>
+                <a href="https://tiktok.com/@teteband" target="_blank" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24"><path d="M16.5 2h-3.2v13.6c0 1.3-1.05 2.35-2.35 2.35a2.35 2.35 0 01-2.35-2.35c0-1.3 1.05-2.35 2.35-2.35.25 0 .48.04.7.1v-3.28a5.6 5.6 0 00-.7-.05A5.63 5.63 0 005 15.65 5.63 5.63 0 0010.65 21.3a5.63 5.63 0 005.63-5.63V8.4a8.1 8.1 0 004.72 1.5V6.7a4.85 4.85 0 01-4.5-4.7z"/></svg>
+                </a>
+                <a href="https://youtube.com/@TeteBand" target="_blank" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3.02 3.02 0 00-2.13-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.37.56A3.02 3.02 0 00.5 6.2 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.8 3.02 3.02 0 002.13 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.37-.56a3.02 3.02 0 002.13-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.8zM9.75 15.5v-7l6.25 3.5-6.25 3.5z"/></svg>
+                </a>
+                <a href="https://wa.me/40738522875" target="_blank" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="evenimente" style="padding-top: 140px; min-height: 100vh;">
+        <h2>Toate evenimentele</h2>
+        <div class="video-grid">
+            <div class="video-card" onclick="deschidePopup('XNLvm_qqgTo')">
+                <div class="thumb-wrapper">
+                    <img src="https://img.youtube.com/vi/XNLvm_qqgTo/hqdefault.jpg" alt="Video1">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="deschidePopup('mSWsVYZyEUc')">
+                <div class="thumb-wrapper">
+                    <img src="https://img.youtube.com/vi/mSWsVYZyEUc/hqdefault.jpg" alt="Video2">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="deschidePopup('TRZSYTSPI1o')">
+                <div class="thumb-wrapper">
+                    <img src="https://img.youtube.com/vi/TRZSYTSPI1o/hqdefault.jpg" alt="Video3">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="deschidePopup('parxOuiC5A8')">
+                <div class="thumb-wrapper">
+                    <img src="https://img.youtube.com/vi/parxOuiC5A8/hqdefault.jpg" alt="Video4">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="deschidePopup('Dogj5lnuU8A')">
+                <div class="thumb-wrapper">
+                    <img src="https://img.youtube.com/vi/Dogj5lnuU8A/hqdefault.jpg" alt="Video5">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="deschidePopup('6XLYziKXNb8')">
+                <div class="thumb-wrapper">
+                    <img src="https://img.youtube.com/vi/6XLYziKXNb8/hqdefault.jpg" alt="Video6">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="deschidePopup('zrVKbfAr79o')">
+                <div class="thumb-wrapper">
+                    <img src="https://img.youtube.com/vi/zrVKbfAr79o/hqdefault.jpg" alt="Video7">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <!-- adaugi aici oricâte carduri noi, pe măsură ce apar videoclipuri -->
+        </div>
+    </section>
+
+    <div class="video-popup" id="video-popup">
+        <div class="popup-continut">
+            <span class="popup-inchide" onclick="inchidePopup()">&times;</span>
+            <div class="video-wrapper">
+                <iframe id="video-frame" src="" title="Video Tete Band" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <a id="link-youtube" href="#" target="_blank" class="button-youtube">Vezi pe Youtube</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <a href="/">
+                <img th:src="@{/images/logo.png}" alt="Tete Band" class="logo">
+            </a>
+        <p>Follow us on Social Media</p>
+        <div class="social-footer">
+            <a href="https://facebook.com/liviutete1" target="_blank" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+            </a>
+            <a href="https://instagram.com/teteliviu/" target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.07.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.55.55.9 1.1 1.15 1.76.25.64.42 1.36.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.07-.22 1.79-.47 2.43-.26.66-.6 1.21-1.15 1.76-.55.55-1.1.9-1.76 1.15-.64.25-1.36.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.07-.05-1.79-.22-2.43-.47-.66-.26-1.21-.6-1.76-1.15-.55-.55-.9-1.1-1.15-1.76-.25-.64-.42-1.36-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.07.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76.55-.55 1.1-.9 1.76-1.15.64-.25 1.36-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@teteband" target="_blank" aria-label="TikTok">
+                <svg viewBox="0 0 24 24"><path d="M16.5 2h-3.2v13.6c0 1.3-1.05 2.35-2.35 2.35a2.35 2.35 0 01-2.35-2.35c0-1.3 1.05-2.35 2.35-2.35.25 0 .48.04.7.1v-3.28a5.6 5.6 0 00-.7-.05A5.63 5.63 0 005 15.65 5.63 5.63 0 0010.65 21.3a5.63 5.63 0 005.63-5.63V8.4a8.1 8.1 0 004.72 1.5V6.7a4.85 4.85 0 01-4.5-4.7z"/></svg>
+            </a>
+            <a href="https://youtube.com/@TeteBand" target="_blank" aria-label="YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3.02 3.02 0 00-2.13-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.37.56A3.02 3.02 0 00.5 6.2 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.8 3.02 3.02 0 002.13 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.37-.56a3.02 3.02 0 002.13-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.8zM9.75 15.5v-7l6.25 3.5-6.25 3.5z"/></svg>
+            </a>
+            <a href="https://wa.me/40738522875" target="_blank" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </a>
+        </div>
+    </footer>
+
+    <div class="social-sidebar">
+        <a href="https://facebook.com/liviutete1" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+        <a href="https://instagram.com/teteliviu/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.07.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.55.55.9 1.1 1.15 1.76.25.64.42 1.36.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.07-.22 1.79-.47 2.43-.26.66-.6 1.21-1.15 1.76-.55.55-1.1.9-1.76 1.15-.64.25-1.36.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.07-.05-1.79-.22-2.43-.47-.66-.26-1.21-.6-1.76-1.15-.55-.55-.9-1.1-1.15-1.76-.25-.64-.42-1.36-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.07.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76.55-.55 1.1-.9 1.76-1.15.64-.25 1.36-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg>
+        </a>
+        <a href="https://tiktok.com/@teteband" target="_blank" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M16.5 2h-3.2v13.6c0 1.3-1.05 2.35-2.35 2.35a2.35 2.35 0 01-2.35-2.35c0-1.3 1.05-2.35 2.35-2.35.25 0 .48.04.7.1v-3.28a5.6 5.6 0 00-.7-.05A5.63 5.63 0 005 15.65 5.63 5.63 0 0010.65 21.3a5.63 5.63 0 005.63-5.63V8.4a8.1 8.1 0 004.72 1.5V6.7a4.85 4.85 0 01-4.5-4.7z"/></svg>
+        </a>
+        <a href="https://youtube.com/@TeteBand" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3.02 3.02 0 00-2.13-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.37.56A3.02 3.02 0 00.5 6.2 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.8 3.02 3.02 0 002.13 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.37-.56a3.02 3.02 0 002.13-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.8zM9.75 15.5v-7l6.25 3.5-6.25 3.5z"/></svg>
+        </a>
+        <a href="https://wa.me/40738522875" target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </a>
+    </div>
+
+    <script>
+        document.querySelectorAll('section h2').forEach(function (titlu) {
+            titlu.addEventListener('mousemove', function (event) {
+                const dreptunghi = titlu.getBoundingClientRect();
+                const pozitieX = event.clientX - dreptunghi.left;
+                const procent = (pozitieX / dreptunghi.width) * 100;
+                titlu.style.backgroundPosition = procent + '% 0%';
+            });
+
+            titlu.addEventListener('mouseleave', function() {
+                titlu.style.backgroundPosition = '50% 0%';
+            });
+        });
+    </script>
+
+    <script>
+        const butonHamburger = document.getElementById('hamburger-btn');
+        const meniuPrincipal = document.getElementById('meniu-principal');
+
+        butonHamburger.addEventListener('click', function() {
+            meniuPrincipal.classList.toggle('meniu-deschis');
+            butonHamburger.classList.toggle('activ');
+        });
+
+        document.querySelectorAll('#meniu-principal a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                meniuPrincipal.classList.remove('meniu-deschis');
+                butonHamburger.classList.remove('activ');
+            });
+        });
+    </script>
+
+    <script>
+        function deschidePopup(videoId) {
+            document.getElementById('video-frame').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+            document.getElementById('link-youtube').href = 'https://www.youtube.com/watch?v=' + videoId;
+            document.getElementById('video-popup').classList.add('deschis');
+    }
+
+        function inchidePopup() {
+            document.getElementById('video-popup').classList.remove('deschis');
+            document.getElementById('video-frame').src = '';
+    }
+
+        window.addEventListener('click', function(e) {
+            const popup = document.getElementById('video-popup');
+            if (e.target === popup) {
+                inchidePopup();
+            }
+        });
+    </script>
+
+    <script>
+        const navbar = document.querySelector('nav');
+        const sectiuneHero = document.getElementById('acasa');
+        const inaltimeHero = sectiuneHero ? sectiuneHero.offsetHeight : 250;
+        const zonaTranzitie = 300;
+
+        function verificaScroll() {
+            const scroll = window.scrollY;
+            const pragStart = inaltimeHero - zonaTranzitie - 100;
+
+            let progres = (scroll - pragStart) / zonaTranzitie;
+            progres = Math.min(Math.max(progres, 0), 1);
+
+            navbar.style.setProperty('--nav-opacity', (progres * 0.95).toFixed(2));
+        }
+
+        window.addEventListener('scroll', verificaScroll);
+        verificaScroll();
+    </script>
+
+</body>
+</html>
