@@ -6,3 +6,6 @@ spring.mail.username=completeaza-aici@gmail.com
 spring.mail.password=completeaza-aici-parola-de-aplicatie
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
+
+RESEND_API_KEY=re_KEY
+CONTACT_TO_EMAIL=my_email@gmail.com

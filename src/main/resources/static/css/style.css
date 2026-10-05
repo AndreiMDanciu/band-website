@@ -863,4 +863,23 @@
             .form-row {
                 flex-direction: column;
             }
+
+            .despre-chenar {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 24px 16px;
+                border-radius: 10px;
+            }
+
+            .despre-chenar p {
+                font-size: 17px;
+                line-height: 1.7;
+                max-width: 100%;
+            }
+
+            .despre-chenar p.detalii-despre {
+                font-size: 20px;
+                line-height: 1.4;
+            }
+
         }
