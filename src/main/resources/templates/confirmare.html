@@ -62,10 +62,13 @@
 </head>
 <body>
     <div class="confirmare-container">
-        <h1>Mulțumim!</h1>
-        <p>
-            Mulțumim că ați ales Tete Band.<br>
-            Veți fi contactat în cel mai scurt timp de cineva din formație.
+        <h1 th:text="${succes} ? 'Mulțumim!' : 'Ups!'">Mulțumim!</h1>
+        <p th:if="${succes}">
+            Mulțumim că ați ales Tete Band. Veți fi contactat în cel mai scurt timp
+            de cineva din formație.
+        </p>
+        <p th:unless="${succes}">
+            Nu am putut trimite mesajul. Vă rugăm să încercați din nou sau să ne sunați la 0738 522 875.
         </p>
         <a th:href="@{/}" class="buton-acasa">Înapoi la pagina principală</a>
     </div>
