@@ -21,9 +21,15 @@
         </button>
         
         <ul id="meniu-principal">
+            <li class="telefon-mobil">
+                <a href="tel:+40738522875">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    0738 522 875
+                </a>
+            </li>
             <li><a href="/#despre">Despre</a></li>
             <li><a href="/#evenimente">Evenimente</a></li>
-            <li><a href="/#galerie">Galerie</a></li>
+            <li><a href="/#galerie">Galerie Foto</a></li>
             <li><a href="/#contact">Contact</a></li>
             <li class="social-mobil">
                 <a href="https://facebook.com/liviutete1" target="_blank" aria-label="Facebook">
@@ -43,6 +49,10 @@
                 </a>
             </li>
         </ul>
+        <a href="tel:+40738522875" class="nav-telefon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span>0738 522 875</span>
+        </a>
     </nav>
 
     <section id="evenimente" style="padding-top: 140px; min-height: 100vh;">
@@ -218,6 +228,24 @@
 
         window.addEventListener('scroll', verificaScroll);
         verificaScroll();
+    </script>
+
+    <script>
+        function pozitioneazaTelefon() {
+            const meniu = document.getElementById('meniu-principal');
+            const telefon = document.querySelector('.nav-telefon');
+            if (!meniu || !telefon || window.innerWidth <= 768) return;
+
+            const dreptunghiMeniu = meniu.getBoundingClientRect();
+            const spatiuRamas = window.innerWidth - dreptunghiMeniu.right;
+            const distantaDeMarginea = spatiuRamas / 2 - telefon.offsetWidth / 2;
+
+            telefon.style.right = distantaDeMarginea + 'px';
+        }
+
+        window.addEventListener('resize', pozitioneazaTelefon);
+        window.addEventListener('load', pozitioneazaTelefon);
+        pozitioneazaTelefon();
     </script>
 
 </body>
